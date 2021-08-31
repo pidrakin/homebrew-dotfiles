@@ -12,14 +12,14 @@ class Dotfiles < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.1/downloads/dotfiles_1.0.1_Darwin_x86_64.tar.gz"
-      sha256 "eb085052e247c769cf1a8d02fadf5b92969b90eb6431abbb9ba7c91e15d376da"
+      sha256 "dc55080ce1ac6f86dabba93c43514cc2b48f971245622a2d7f3063053e7e7e98"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.1/downloads/dotfiles_1.0.1_Linux_x86_64.tar.gz"
-      sha256 "47fc098bbcef4570be62683c3c052b5ad7adc3bc8734e96d6a3695e8c3a6781f"
+      sha256 "afdf362a91a65a4f893d5efc5d2c8790acd636c0609d11f4c2592db83464ca4c"
     end
   end
 
