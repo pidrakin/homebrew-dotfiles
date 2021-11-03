@@ -7,7 +7,6 @@ class Dotfiles < Formula
   homepage "https://gitlab.com/pidrakin/dotfiles-cli"
   version "1.0.1"
   license "HOOKAH-WARE"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
