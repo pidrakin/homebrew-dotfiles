@@ -5,25 +5,29 @@
 class Dotfiles < Formula
   desc "This tool encourages and supports creating, maintaining and distributing a set of dotfiles. Dotfiles encompasses the relevant configuration files accompanying most of the binaries, tools on nix-themed systems."
   homepage "https://gitlab.com/pidrakin/dotfiles-cli"
-  version "1.0.1"
+  version "1.0.2"
   license "HOOKAH-WARE"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.1/downloads/dotfiles_1.0.1_Darwin_x86_64.tar.gz"
-      sha256 "dc55080ce1ac6f86dabba93c43514cc2b48f971245622a2d7f3063053e7e7e98"
+      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.2/downloads/dotfiles_1.0.2_Darwin_x86_64.tar.gz"
+      sha256 "dcf9ed5c50c0b7564e570cb906f5247add31786adce90deab75da86dde46af5a"
+
+      def install
+        bin.install "dotfiles"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.1/downloads/dotfiles_1.0.1_Linux_x86_64.tar.gz"
-      sha256 "afdf362a91a65a4f893d5efc5d2c8790acd636c0609d11f4c2592db83464ca4c"
-    end
-  end
+      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.2/downloads/dotfiles_1.0.2_Linux_x86_64.tar.gz"
+      sha256 "4da862cbf850b385a5f809c86b0ffa78940e68f551f1f9a6f432c5fa25105953"
 
-  def install
-    bin.install "dotfiles"
+      def install
+        bin.install "dotfiles"
+      end
+    end
   end
 
   test do
