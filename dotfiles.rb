@@ -5,24 +5,32 @@
 class Dotfiles < Formula
   desc "This tool encourages and supports creating, maintaining and distributing a set of dotfiles. Dotfiles encompasses the relevant configuration files accompanying most of the binaries, tools on nix-themed systems."
   homepage "https://gitlab.com/pidrakin/dotfiles-cli"
-  version "1.0.8"
+  version "1.0.9"
   license "HOOKAH-WARE"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.8/downloads/dotfiles_1.0.8_Darwin_x86_64.tar.gz"
-      sha256 "cac7274129e55fc3d8115c9c94f7cf42cf6b0a7b8667df1a292837c61910bf69"
+    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.0.9/downloads/dotfiles_1.0.9_Darwin_x86_64.tar.gz"
+    sha256 "93f8a09652b6a49c1587213ee4381578a8c8d7c45f282767eab0a1e25a0dc887"
 
-      def install
-        bin.install "dotfiles"
+    def install
+      bin.install "dotfiles"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Dotfiles
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/1.0.8/downloads/dotfiles_1.0.8_Linux_x86_64.tar.gz"
-      sha256 "e55492dc33c381eee247ff446a79f9417cb8b94dab6c955098b27b482b272b80"
+      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.0.9/downloads/dotfiles_1.0.9_Linux_x86_64.tar.gz"
+      sha256 "ec77b8a8ebbc18f4d821cec154e69d6c19e1d8362fbbc3b606f29ae80f12ded4"
 
       def install
         bin.install "dotfiles"
