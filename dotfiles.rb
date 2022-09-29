@@ -14,7 +14,7 @@ class Dotfiles < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.4/downloads/dotfiles-1.2.4-darwin-amd64.tar.gz"
-      sha256 "9d6d05e4d36f1534b7152e590080ea74e873a452a2f66cd644824211f4f8bea9"
+      sha256 "b9f506f4db3d6f3c2813d77daf4f5ac639e421fbc5490cbabc828d2a8b8d4222"
 
       def install
         bin.install "dotfiles"
@@ -25,7 +25,7 @@ class Dotfiles < Formula
     end
     if Hardware::CPU.arm?
       url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.4/downloads/dotfiles-1.2.4-darwin-arm64.tar.gz"
-      sha256 "70dab55e1a47f3e5a1447a3b8df2f68301b45ea6ed99109dcf67dcf0ce0aa212"
+      sha256 "42fb335cf85e017b912d9973c27aefc94c8956dd81244c582c7a0e87d604a6df"
 
       def install
         bin.install "dotfiles"
