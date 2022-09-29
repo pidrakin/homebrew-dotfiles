@@ -5,37 +5,39 @@
 class Dotfiles < Formula
   desc "This tool encourages and supports creating, maintaining and distributing a set of dotfiles. Dotfiles encompasses the relevant configuration files accompanying most of the binaries, tools on nix-themed systems."
   homepage "https://gitlab.com/pidrakin/dotfiles-cli"
-  version "1.2.3"
+  version "1.2.4"
   license "HOOKAH-WARE"
 
+  depends_on "bash-completion@2"
+  depends_on :macos
+
   on_macos do
-    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.3/downloads/dotfiles_1.2.3_Darwin_x86_64.tar.gz"
-    sha256 "29518bfc0853e44d18e7d14006d97abddf520564c7afc4c04b26dec971767ffd"
+    if Hardware::CPU.intel?
+      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.4/downloads/dotfiles-1.2.4-darwin-amd64.tar.gz"
+      sha256 "9d6d05e4d36f1534b7152e590080ea74e873a452a2f66cd644824211f4f8bea9"
 
-    def install
-      bin.install "dotfiles"
+      def install
+        bin.install "dotfiles"
+        man1.install Dir["man/*"]
+        doc.install Dir["docs/*"]
+        doc.install "docs/LICENSE"
+      end
     end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Dotfiles
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.4/downloads/dotfiles-1.2.4-darwin-arm64.tar.gz"
+      sha256 "70dab55e1a47f3e5a1447a3b8df2f68301b45ea6ed99109dcf67dcf0ce0aa212"
+
+      def install
+        bin.install "dotfiles"
+        man1.install Dir["man/*"]
+        doc.install Dir["docs/*"]
+        doc.install "docs/LICENSE"
       end
     end
   end
 
-  on_linux do
-    if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.2.3/downloads/dotfiles_1.2.3_Linux_x86_64.tar.gz"
-      sha256 "8f1e424be11c1a85e8bb9c15be6c6813d06d4bbce825750834f7baea8cd05b1f"
-
-      def install
-        bin.install "dotfiles"
-      end
-    end
+  def post_install
+    system "#{bin}/dotfiles completion bash > /usr/local/etc/bash_completion.d/dotfiles"
   end
 
   test do
