@@ -1,0 +1,27 @@
+name: Mirror Repo
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: mirror
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror
+      run: |
+        git config --global user.email "team@pidrak.in"
+        git config --global user.name "Pidrakin"
+        git clone "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" github-homebrew-dotfiles.git
+        git clone --mirror 'https://gitlab.com/pidrakin/homebrew-dotfiles.git'
+        git clone homebrew-dotfiles.git homebrew-dotfiles
+        cd homebrew-dotfiles/
+        cp -r ../github-homebrew-dotfiles.git/.github .github
+        git add -A
+        git commit -m "added github workflows"
+        git push origin master
+        cd ../homebrew-dotfiles.git/
+        git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        git push --mirror github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
