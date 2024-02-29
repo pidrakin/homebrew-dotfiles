@@ -5,38 +5,36 @@
 class Dotfiles < Formula
   desc "This tool encourages and supports creating, maintaining and distributing a set of dotfiles. Dotfiles encompasses the relevant configuration files accompanying most of the binaries, tools on nix-themed systems."
   homepage "https://gitlab.com/pidrakin/dotfiles-cli"
-  version "1.6.2"
+  version "1.6.3"
   license "HOOKAH-WARE"
 
   depends_on "bash-completion@2"
   depends_on :macos
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.6.2/downloads/dotfiles-1.6.2-darwin-amd64.tar.gz"
-      sha256 "22a75ecc242d1ebbb636b34d176483f2893811509d9847a9bb81dd6ab57f9936"
+  if Hardware::CPU.intel?
+    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.6.3/downloads/dotfiles-1.6.3-darwin-amd64.tar.gz"
+    sha256 "834b2d7382e18719c3cdec4145422fffb73d082715de505d68b06d7cb7f519e4"
 
-      def install
-        bin.install "dotfiles"
-        man1.install Dir["man/*"]
-        doc.install Dir["docs/*"]
-        doc.install "LICENSE"
-        doc.install "README.md"
-        doc.install "preview.png"
-      end
+    def install
+      bin.install "dotfiles"
+      man1.install Dir["man/*"]
+      doc.install Dir["docs/*"]
+      doc.install "LICENSE"
+      doc.install "README.md"
+      doc.install "preview.png"
     end
-    if Hardware::CPU.arm?
-      url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.6.2/downloads/dotfiles-1.6.2-darwin-arm64.tar.gz"
-      sha256 "3391e16b0159d89941e74cb64a5aa1c355acd3874ccac8cddff45577a4d21daa"
+  end
+  if Hardware::CPU.arm?
+    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.6.3/downloads/dotfiles-1.6.3-darwin-arm64.tar.gz"
+    sha256 "009e996396d24da86d94382a2e00ea16102e789d2c74dfba0d3414687321806c"
 
-      def install
-        bin.install "dotfiles"
-        man1.install Dir["man/*"]
-        doc.install Dir["docs/*"]
-        doc.install "LICENSE"
-        doc.install "README.md"
-        doc.install "preview.png"
-      end
+    def install
+      bin.install "dotfiles"
+      man1.install Dir["man/*"]
+      doc.install Dir["docs/*"]
+      doc.install "LICENSE"
+      doc.install "README.md"
+      doc.install "preview.png"
     end
   end
 
