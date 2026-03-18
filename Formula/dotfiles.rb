@@ -12,7 +12,7 @@ class Dotfiles < Formula
   depends_on :macos
 
   on_intel do
-    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/download/v1.8.0-rc.11/dotfiles-1.8.0-rc.11-darwin-amd64.tar.gz"
+    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.8.0-rc.11/downloads/dotfiles-1.8.0-rc.11-darwin-amd64.tar.gz"
     sha256 "495465cf725f6cda41f22c0ccdad73ff00722632e44590c4e49780534d9dd298"
 
     def install
@@ -25,7 +25,7 @@ class Dotfiles < Formula
     end
   end
   on_arm do
-    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/download/v1.8.0-rc.11/dotfiles-1.8.0-rc.11-darwin-arm64.tar.gz"
+    url "https://gitlab.com/pidrakin/dotfiles-cli/-/releases/v1.8.0-rc.11/downloads/dotfiles-1.8.0-rc.11-darwin-arm64.tar.gz"
     sha256 "7ebaee14de9ffe830bb0d823ce3605e59740e7c25c45fbbf7759862566988145"
 
     def install
