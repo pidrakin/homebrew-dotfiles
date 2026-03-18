@@ -22,6 +22,7 @@ class Dotfiles < Formula
       doc.install "LICENSE"
       doc.install "README.md"
       doc.install "preview.png"
+      generate_completions_from_executable(bin/"dotfiles", "completion", shell_parameter_format: :cobra, shells: [:bash])
     end
   end
   on_arm do
@@ -35,11 +36,8 @@ class Dotfiles < Formula
       doc.install "LICENSE"
       doc.install "README.md"
       doc.install "preview.png"
+      generate_completions_from_executable(bin/"dotfiles", "completion", shell_parameter_format: :cobra, shells: [:bash])
     end
-  end
-
-  def post_install
-    system "#{bin}/dotfiles completion bash > /usr/local/etc/bash_completion.d/dotfiles"
   end
 
   test do
