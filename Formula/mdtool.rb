@@ -5,13 +5,13 @@
 class Mdtool < Formula
   desc "Render templated Markdown documents to HTML or PDF with Chromium."
   homepage "https://gitlab.com/pidrakin/mdtool"
-  version "0.5.2-beta.15"
+  version "0.5.2-beta.16"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.arm?
-    url "https://gitlab.com/pidrakin/mdtool/-/releases/0.5.2-beta.15/downloads/mdtool-0.5.2-beta.15-darwin-arm64.tar.gz"
-    sha256 "2e6d0650b19d5d3194598fe41a95773beaebe86e58cc22c335443487c3c45dff"
+    url "https://gitlab.com/pidrakin/mdtool/-/releases/0.5.2-beta.16/downloads/mdtool-0.5.2-beta.16-darwin-arm64.tar.gz"
+    sha256 "022fe26c597f0d52ace64b6fbb7ca62c8be6aceed82b57eb0a7599b6032bf0dd"
 
     define_method(:install) do
       bin.install "mdtool"
