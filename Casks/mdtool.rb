@@ -23,10 +23,16 @@ cask "mdtool" do
   end
 
   caveats do
-    "Install Google Chrome or Chromium if you want to generate PDFs with the native binary."
-    "Set MDTOOL_BROWSER when auto-discovery is not sufficient."
-    ""
-    "PlantUML code fences also require a Java runtime and the plantuml executable in PATH."
+    <<~EOS
+      If you previously installed the formula, uninstall it first so Homebrew can link the cask binary:
+        brew uninstall mdtool
+        brew install --cask pidrakin/dotfiles/mdtool
+
+      Install Google Chrome or Chromium if you want to generate PDFs with the native binary.
+      Set MDTOOL_BROWSER when auto-discovery is not sufficient.
+
+      PlantUML code fences also require a Java runtime and the plantuml executable in PATH.
+    EOS
   end
 
   # No zap stanza required
