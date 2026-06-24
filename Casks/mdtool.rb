@@ -3,7 +3,7 @@ cask "mdtool" do
   name "mdtool"
   desc "Render templated Markdown documents to HTML or PDF with Chromium."
   homepage "https://gitlab.com/pidrakin/mdtool"
-  version "0.6.1"
+  version "0.6.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,7 +14,7 @@ cask "mdtool" do
   on_macos do
     on_arm do
       url "https://gitlab.com/pidrakin/mdtool/-/releases/#{version}/downloads/mdtool-#{version}-darwin-arm64.tar.gz"
-      sha256 "c91b6092554842572b7fcd937887cd597e4dcad60d101aa080977bd4a45aa8c8"
+      sha256 "58a89060a2d8618947f759fdc3a19ce1be3600f7dbdfca67bfc891996b04cdc1"
     end
   end
 
@@ -24,7 +24,9 @@ cask "mdtool" do
 
   caveats do
     <<~EOS
-      If you previously installed the formula, uninstall it first so Homebrew can link the cask binary:
+      You do not need to reinstall after normal cask upgrades.
+      Only uninstall the old formula if `brew list --formula mdtool` still shows one,
+      or if `which mdtool` does not point to the cask binary:
         brew uninstall mdtool
         brew install --cask pidrakin/dotfiles/mdtool
 
