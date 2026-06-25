@@ -3,7 +3,7 @@ cask "mdtool" do
   name "mdtool"
   desc "Render templated Markdown documents to HTML or PDF with Chromium."
   homepage "https://gitlab.com/pidrakin/mdtool"
-  version "0.6.3"
+  version "0.7.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,7 +14,7 @@ cask "mdtool" do
   on_macos do
     on_arm do
       url "https://gitlab.com/pidrakin/mdtool/-/releases/#{version}/downloads/mdtool-#{version}-darwin-arm64.tar.gz"
-      sha256 "9e56a4336ed85edc17993f5b0ba0b65e5a7d69ce4d40a34600b757a079d40f08"
+      sha256 "5145f08160a0b49881e72a871cde39872031c66e48356bf1264d1df1eb41e664"
     end
   end
 
